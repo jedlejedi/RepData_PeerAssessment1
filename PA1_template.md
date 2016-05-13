@@ -1,15 +1,10 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1
 
 
 ## Loading and preprocessing the data
 
-Load the data and convert the values in date column into an R dates
-```{r}
+
+```r
 activity <- read.csv(unzip("activity.zip"), header=TRUE, quote="\"", sep=",")
 activity$date <- as.Date(activity$date, "%Y-%m-%d")
 ```
@@ -17,26 +12,43 @@ activity$date <- as.Date(activity$date, "%Y-%m-%d")
 ## What is mean total number of steps taken per day?
 
 Remove rows with missing number of steps 
-```{r}
+
+```r
 act <- subset(activity, !is.na(steps))
 ```
 
 Calculate the number of steps per day
-```{r}
+
+```r
 steps_per_day <- tapply(act$steps, act$date, mean)
 ```
 
 Generate the histogram of the total number of steps taken each day
-```{r}
+
+```r
 hist(steps_per_day, 
      xlab="Number of steps", 
      main="Total number of steps taken each day")
 ```
 
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+
 Calculate the mean and median number of steps taken per day
-```{r}
+
+```r
 mean(steps_per_day)
+```
+
+```
+## [1] 37.3826
+```
+
+```r
 median(steps_per_day)
+```
+
+```
+## [1] 37.37847
 ```
 
 ## What is the average daily activity pattern?
