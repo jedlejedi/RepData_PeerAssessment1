@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 
 ## Loading and preprocessing the data
@@ -26,7 +31,7 @@ hist(steps_per_day,
      main="Total number of steps taken each day")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
 
 Calculate the mean and median number of steps taken per day
 
@@ -65,7 +70,7 @@ plot(x = names(steps_per_interval),
      main = "Average number of steps per 5 minutes interval")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png)
 
 Determine which interval contains the maximum number of steps
 
@@ -112,7 +117,7 @@ hist(steps_per_day_fixed,
      main="Total number of steps taken each day")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png)
 
 Calculate the mean and median number of steps taken per day
 
@@ -132,7 +137,7 @@ median(steps_per_day_fixed)
 ## [1] 10766.19
 ```
 
-Compared to the first part of the assignment, the mean number of steps remains the same while the median number of steps has gone up slightly.
+Imputing missing value has caused both the mean and median number of steps to go up.
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
@@ -154,7 +159,7 @@ steps_per_interval_weekday <- tapply(activity_weekday$steps, activity_weekday$in
 steps_per_interval_weekend <- tapply(activity_weekend$steps, activity_weekend$interval, mean)
 ```
 
-Generate the time series chart
+Generate the time series charts
 
 ```r
 plot(x = names(steps_per_interval_weekday), 
@@ -166,7 +171,7 @@ plot(x = names(steps_per_interval_weekday),
      col = "red")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
+![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15-1.png)
 
 ```r
 plot(x = names(steps_per_interval_weekend), 
@@ -178,5 +183,5 @@ plot(x = names(steps_per_interval_weekend),
      col = "blue")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-15-2.png)<!-- -->
+![plot of chunk unnamed-chunk-15](figure/unnamed-chunk-15-2.png)
 

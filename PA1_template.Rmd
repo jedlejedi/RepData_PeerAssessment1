@@ -89,7 +89,7 @@ mean(steps_per_day_fixed)
 median(steps_per_day_fixed)
 ```
 
-Compared to the first part of the assignment, the mean number of steps remains the same while the median number of steps has gone up slightly.
+Imputing missing value has caused both the mean and median number of steps to go up.
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
@@ -111,7 +111,7 @@ steps_per_interval_weekend <- tapply(activity_weekend$steps, activity_weekend$in
 
 ```
 
-Generate the time series chart
+Generate the time series charts
 ```{r}
 plot(x = names(steps_per_interval_weekday), 
      y = steps_per_interval_weekday, 
